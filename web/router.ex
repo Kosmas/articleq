@@ -20,7 +20,8 @@ defmodule Articleq.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", Articleq do
-  #   pipe_through :api
-  # end
+  scope "/api", Articleq do
+    pipe_through :api
+    resources "/users", UserController, except: [:new, :edit]
+  end
 end
